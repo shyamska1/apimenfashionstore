@@ -14,11 +14,11 @@ router.post('/register', (req, res, next) => {
                 res.status(500).send(error)
             }else{
                 user = {
-                    fullName:req.body.fullName,
+                    fullname:req.body.fullName,
                     email: req.body.email,
                     username : req.body.username,
                     address:req.body.address,
-                    Phone:req.body.Phone,
+                    phonenumber:req.body.phonenumber,
                     password : hash,
                     CnfPassword:hash
                 }

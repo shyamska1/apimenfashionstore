@@ -1,5 +1,3 @@
-// //--------Store  WebApi-------//
-
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -18,7 +16,7 @@ app.options('*', cors());
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
 
 app.use('/users',require('./routes/users'));
  //app.use('/upload', auth.verifyUser, uploadRouter);
@@ -28,7 +26,7 @@ app.use((err, req, res, next) => {
      res.status(500).send({ status: err.message });
     res.statusCode = 500;   
     res.json({ status: err.message });
-})
+}) 
 
 app.listen(process.env.PORT, () => {
     console.log(`App is running at localhost:${process.env.PORT}`);
